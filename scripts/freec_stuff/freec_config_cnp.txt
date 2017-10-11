@@ -1,0 +1,68 @@
+# A config file to running FREEC on exome sequencing of TCGA
+
+[general]
+
+#window = 0
+#step = 1000
+minCNAlength=1
+#minMappabilityPerWindow = 0.7 
+#breakPointThreshold = -.001 
+breakPointType=2
+
+intercept=1 
+#degree=3
+#coefficientOfVariation = 0.05
+contaminationAdjustment=FALSE
+minimalsubclonePresence=0.10
+forceGCcontentNormalization=0
+GCcontentProfile = 
+
+sex = XY
+ploidy = 2 
+
+uniqueMatch=TRUE
+gemMappabilityFile = /exports/igmm/eddie/NextGenResources/software/FREEC-9.3/resources/out100m2_hg38.gem 
+
+chrLenFile=/exports/igmm/eddie/EyeMalform/X00013WK/sv/hg38.24chrom.sizes
+chrFiles=/exports/igmm/eddie/NextGenResources/reference/hg38/chroms
+
+bedtools=/exports/igmm/software/pkg/el7/apps/bcbio/20160916/bin/bedtools
+samtools=/exports/igmm/software/pkg/el7/apps/bcbio/20160916/bin/samtools
+sambamba=/exports/igmm/software/pkg/el7/apps/bcbio/20160916/bin/sambamba
+
+maxThreads=4
+noisyData=FALSE
+
+outputDir = 
+BedGraphOutput=TRUE
+printNA=TRUE
+readCountThreshold=10
+
+[sample] 
+
+#mateFile = sample.bam 
+#mateFile = sample.pileup 
+mateCopyNumberFile = sample.cnp 
+#inputFormat=BAM
+#mateOrientation = RF 
+
+[control]
+
+#mateFile = control.bam 
+#mateFile = control.pileup
+#mateCopyNumberFile = control.cpn 
+#inputFormat=pileup
+#mateOrientation=0
+
+[BAF]
+
+SNPfile = /exports/igmm/software/pkg/el7/apps/bcbio/share2/genomes/Hsapiens/hg38/variation/dbsnp-147.vcf.gz 
+#makePileup = /exports/igmm/software/pkg/el7/apps/bcbio/share2/genomes/Hsapiens/hg38/variation/dbsnp-147.vcf.gz 
+minimalCoveragePerPosition = 3 
+fastaFile=/exports/igmm/software/pkg/el7/apps/bcbio/share2/genomes/Hsapiens/hg38/seq/hg38.fa
+#minimalQualityPerPosition=0
+#shiftInQuality=0
+
+[target]
+#captureRegions = 
+
